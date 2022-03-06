@@ -12,17 +12,15 @@ export const ToggleableTimerForm = (props) => {
         setIsOpen(false);
     }
 
-    if (isOpen) {
-        return (
-            <TimerForm
-                onFormSubmit={handleFormSubmit}
-                onFormClose={() => setIsOpen(false)}
-            />);
-    } else {
-        return (
-            <Box id="ToggleableTimerForm">
-                <Button onClick={() => setIsOpen(true)}><AddIcon/></Button>
-            </Box>
-        );
-    }
+    return (
+        <Box id="ToggleableTimerForm">
+            {isOpen ?
+                <TimerForm onFormSubmit={handleFormSubmit} onFormClose={() => setIsOpen(false)}/>
+                :
+                <Box>
+                    <Button onClick={() => {setIsOpen(true);}}><AddIcon/></Button>
+                </Box>
+            }
+        </Box>
+    );
 }

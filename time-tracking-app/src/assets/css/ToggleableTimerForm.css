@@ -1,3 +1,6 @@
-#ToggleableTimerForm{
+#ToggleableTimerForm {
+    border: thin solid black;
+    width: 50%;
     margin: 1rem auto;
+    text-align: center;
 }

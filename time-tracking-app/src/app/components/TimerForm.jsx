@@ -39,8 +39,8 @@ export const TimerForm = (props) => {
                            required/>
                 </Box>
                 <CardActions>
-                    <Button onClick={handleSubmit}>{props.id ? "Update" : "Create"}</Button>
-                    <Button onClick={props.onFormClose}>Cancel</Button>
+                    <Button variant="contained" onClick={handleSubmit}>{props.id ? "Update" : "Create"}</Button>
+                    <Button variant="contained" onClick={props.onFormClose}>Cancel</Button>
                 </CardActions>
             </CardContent>
         </Card>

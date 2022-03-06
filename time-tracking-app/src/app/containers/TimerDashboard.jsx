@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {v4 as uuidV4} from 'uuid';
 import axios from "axios";
 import {Box} from "@mui/material";
+import "../../assets/css/TimerDashboard.css";
 
 export const TimerDashboard = () => {
     const [timers, setTimers] = useState([]);
