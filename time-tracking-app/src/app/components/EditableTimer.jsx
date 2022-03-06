@@ -26,23 +26,26 @@ export const EditableTimer = (props) => {
         setEditFormOpen(false);
     }
 
-    return editFormOpen ?
-        <TimerForm
-            id={props.id}
-            title={props.title}
-            project={props.project}
-            onFormSubmit={handleSubmit}
-            onFormClose={handleEditCancel}
-        /> :
-        <Timer
-            id={props.id}
-            title={props.title}
-            project={props.project}
-            elapsed={props.elapsed}
-            runningSince={props.runningSince}
-            onEditClick={handleEditClick}
-            onTrashClick={props.onTrashClick}
-            onStartClick={props.onStartClick}
-            onStopClick={props.onStopClick}
-        />;
+    return (
+        editFormOpen ?
+            <TimerForm
+                id={props.id}
+                title={props.title}
+                project={props.project}
+                onFormSubmit={handleSubmit}
+                onFormClose={handleEditCancel}
+            />
+            :
+            <Timer
+                id={props.id}
+                title={props.title}
+                project={props.project}
+                elapsed={props.elapsed}
+                runningSince={props.runningSince}
+                onEditClick={handleEditClick}
+                onTrashClick={props.onTrashClick}
+                onStartClick={props.onStartClick}
+                onStopClick={props.onStopClick}
+            />
+    );
 }

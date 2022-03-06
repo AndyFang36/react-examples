@@ -1,0 +1,9 @@
+#EditableTimerList{
+    margin: 0 auto;
+    border: thin solid black;
+    width: 50%;
+}
+
+#EditableTimerList .editableTimer{
+
+}

@@ -1,25 +1,16 @@
-import logo from '../assets/images/logo.svg';
 import '../assets/css/App.css';
+import {Box, Container, CssBaseline, Divider, Typography} from "@mui/material";
+import {TimerDashboard} from "./containers/TimerDashboard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App = () => {
+  return(
+      <Box component="main">
+        <CssBaseline/>
+        <Typography variant="h2" component="h2" align="center">Time Tracking App</Typography>
+        <Divider sx={{margin:"1rem 0"}}/>
+        <Container>
+            <TimerDashboard/>
+        </Container>
+      </Box>
+  )
 }
-
-export default App;
