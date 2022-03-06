@@ -10,12 +10,12 @@ export const Timer = (props) => {
         timeUtils.renderElapsedString(props.elapsed, props.runningSince)
     );
 
-    useEffect(()=>{
+    useEffect(() => {
         const interval = setInterval(() => {
             setElapsedString(timeUtils.renderElapsedString(props.elapsed, props.runningSince));
         }, 1000);
-        return ()=>clearInterval(interval);
-    })
+        return () => clearInterval(interval);
+    });
 
     const handleTrashClick = () => {
 
