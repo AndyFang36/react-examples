@@ -1,4 +1,4 @@
-import {TimerForm} from "./TimerForm";
+import {TimerForm} from "../components/TimerForm";
 import {useState} from "react";
 import {Box, Button} from "@mui/material";
 import {Add as AddIcon} from "@mui/icons-material";

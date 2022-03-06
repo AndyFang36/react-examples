@@ -1,5 +1,6 @@
 import {EditableTimer} from "./EditableTimer";
 import {List, ListItem} from "@mui/material";
+import PropTypes from "prop-types"
 import "../../assets/css/EditableTimerList.css";
 
 export const EditableTimerList = (props) => {
@@ -22,4 +23,12 @@ export const EditableTimerList = (props) => {
             ))}
         </List>
     );
+}
+
+EditableTimerList.propTypes = {
+    timers: PropTypes.array.isRequired,
+    onFormSubmit: PropTypes.func.isRequired,
+    onTrashClick: PropTypes.func.isRequired,
+    onStartClick: PropTypes.func.isRequired,
+    onStopClick: PropTypes.func.isRequired
 }

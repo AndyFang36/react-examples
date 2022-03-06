@@ -18,7 +18,6 @@ export const Timer = (props) => {
     });
 
     const handleTrashClick = () => {
-
         props.onTrashClick(props.id);
     }
 

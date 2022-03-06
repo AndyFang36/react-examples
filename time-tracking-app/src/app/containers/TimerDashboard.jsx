@@ -1,5 +1,5 @@
-import {EditableTimerList} from "../components/EditableTimerList";
-import {ToggleableTimerForm} from "../components/ToggleableTimerForm";
+import {EditableTimerList} from "./EditableTimerList";
+import {ToggleableTimerForm} from "./ToggleableTimerForm";
 import {useEffect, useState} from "react";
 import {v4 as uuidV4} from 'uuid';
 import axios from "axios";
@@ -50,11 +50,18 @@ export const TimerDashboard = () => {
     };
 
     const handleEditFormSubmit = (attrs) => {
-        updateTimer(attrs);
+        const newTimers = timers.map(timer => {
+            if (timer.id === attrs.id) {
+                return {...timer, title: attrs.title, project: attrs.project}
+            } else {
+                return timer;
+            }
+        });
+        setTimers(newTimers);
     }
 
     const handleTimerTrash = (timerId) => {
-        deleteTimer(timerId);
+        setTimers(timers.filter(timer => timer.id !== timerId));
     }
 
     const handleStartClick = (timerId) => {
@@ -82,22 +89,6 @@ export const TimerDashboard = () => {
             }
         });
         setTimers(newTimers);
-    }
-
-    const updateTimer = (attrs) => {
-        const newTimers = timers.map(timer => {
-            if (timer.id === attrs.id) {
-                // return Object.assign({}, timer, {title: attrs.title, project: attrs.project})
-                return {...timer, title: attrs.title, project: attrs.project}
-            } else {
-                return timer;
-            }
-        });
-        setTimers(newTimers);
-    }
-
-    const deleteTimer = (timerId) => {
-        setTimers(timers.filter(timer => timer.id !== timerId));
     }
 
     return (
