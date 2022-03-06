@@ -19,28 +19,34 @@ export const TimerDashboard = () => {
             }
         })
             .then((response) => {
-            setTimers(response.data);
-            console.log(response);
-        })
+                setTimers(response.data);
+                console.log(response);
+            })
             .catch((error) => {
-            if (error.response) {
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-                console.log(error.request);
-            } else {
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
-        })
+                if (error.response) {
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
+            })
             .then(() => {
                 console.log("请求完成。")
             });
     }, []);
 
     const handleCreateFormSubmit = (timer) => {
-        createTimer(timer);
+        let newTimer = {
+            id: uuidV4(),
+            title: timer.title || 'Unknown Timer',
+            project: timer.project || 'Unknown Project',
+            elapsed: 0
+        };
+        setTimers([...timers, newTimer]);
     };
 
     const handleEditFormSubmit = (attrs) => {
@@ -52,21 +58,30 @@ export const TimerDashboard = () => {
     }
 
     const handleStartClick = (timerId) => {
-        startTimer(timerId)
+        const newTimers = timers.map(timer => {
+            if (timer.id === timerId) {
+                console.log(timerId)
+                // console.log({...timer, runningSince: Date.now()})
+                return {...timer, runningSince: Date.now()}
+                // return Object.assign({}, timer, {runningSince: Date.now()})
+            } else {
+                return timer;
+            }
+        });
+        // console.log(newTimers)
+        setTimers(newTimers);
     }
 
     const handleStopClick = (timerId) => {
-        stopTimer(timerId);
-    }
-
-    const createTimer = (timer) => {
-        let newTimer = {
-            id: uuidV4(),
-            title: timer.title || 'Unknown Timer',
-            project: timer.project || 'Unknown Project',
-            elapsed: 0
-        };
-        setTimers([...timers, newTimer]);
+        const newTimers = timers.map(timer => {
+            if (timer.id === timerId) {
+                const lastElapsed = Date.now() - timer.runningSince;
+                return {...timer, elapsed: (timer.elapsed + lastElapsed), runningSince: null}
+            } else {
+                return timer;
+            }
+        });
+        setTimers(newTimers);
     }
 
     const updateTimer = (attrs) => {
@@ -82,30 +97,7 @@ export const TimerDashboard = () => {
     }
 
     const deleteTimer = (timerId) => {
-        setTimers(timers.filter(timer => timer.id !== timerId))
-    }
-
-    const startTimer = (timerId) => {
-        const newTimers = timers.map(timer => {
-            if (timer.id === timerId) {
-                return {...timer, runningSince: Date.now()}
-            } else {
-                return timer;
-            }
-        });
-        setTimers(newTimers);
-    }
-
-    const stopTimer = (timerId) => {
-        const newTimers = timers.map(timer => {
-            if (timer.id === timerId) {
-                const lastElapsed = Date.now() - timer.runningSince;
-                return {...timer, elapsed: (timer.elapsed + lastElapsed), runningSince: null}
-            } else {
-                return timer;
-            }
-        });
-        setTimers(newTimers);
+        setTimers(timers.filter(timer => timer.id !== timerId));
     }
 
     return (

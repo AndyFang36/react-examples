@@ -2,3 +2,13 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.editIcon:hover{
+    cursor: pointer;
+    color: deepskyblue;
+}
+
+.deleteIcon:hover{
+    cursor: pointer;
+    color: red;
+}

@@ -6,23 +6,15 @@ export const EditableTimer = (props) => {
     const [editFormOpen, setEditFormOpen] = useState(false);
 
     const handleEditClick = () => {
-        openForm();
+        setEditFormOpen(true);
     }
 
     const handleEditCancel = () => {
-        closeForm();
+        setEditFormOpen(false);
     }
 
     const handleSubmit = (timer) => {
         props.onFormSubmit(timer);
-        closeForm();
-    }
-
-    const openForm = () => {
-        setEditFormOpen(true);
-    }
-
-    const closeForm = () => {
         setEditFormOpen(false);
     }
 

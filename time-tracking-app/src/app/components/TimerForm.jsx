@@ -6,14 +6,6 @@ export const TimerForm = (props) => {
     const [title, setTitle] = useState(props.title || "");
     const [project, setProject] = useState(props.project || "");
 
-    const handleTitleChange = (e) => {
-        setTitle(e.target.value);
-    }
-
-    const handleProjectChange = (e) => {
-        setProject(e.target.value);
-    }
-
     const handleSubmit = () => {
         props.onFormSubmit({
             id: props.id,
@@ -31,23 +23,23 @@ export const TimerForm = (props) => {
             </CardHeader>
             <CardContent>
                 <Box>
-                    <span>Title</span>
-                    <input onChange={handleTitleChange}
-                           type="text"
+                    <label>Title</label>
+                    <input type="text"
+                           onChange={(e) => setTitle(e.target.value)}
                            defaultValue={props.title}
                            placeholder="Enter title here..."
                            required/>
                 </Box>
                 <Box>
-                    <span>Project</span>
-                    <input onChange={handleProjectChange}
+                    <label>Project</label>
+                    <input onChange={(e) => setProject(e.target.value)}
                            type="text"
                            defaultValue={props.project}
                            placeholder="Enter project here..."
                            required/>
                 </Box>
                 <CardActions>
-                    <Button onClick={handleSubmit}>{props.id ? "Update" : "Delete"}</Button>
+                    <Button onClick={handleSubmit}>{props.id ? "Update" : "Create"}</Button>
                     <Button onClick={props.onFormClose}>Cancel</Button>
                 </CardActions>
             </CardContent>

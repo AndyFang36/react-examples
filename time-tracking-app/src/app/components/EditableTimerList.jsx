@@ -8,6 +8,7 @@ export const EditableTimerList = (props) => {
             {props.timers.map(timer => (
                 <ListItem className="editableTimer" key={"timer-" + timer.id} id={"Timer" + timer.id}>
                     <EditableTimer
+                        id={timer.id}
                         title={timer.title}
                         project={timer.project}
                         elapsed={timer.elapsed}
