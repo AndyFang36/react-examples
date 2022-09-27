@@ -76,7 +76,6 @@ export const TimerDashboard = () => {
                 return timer;
             }
         });
-        // console.log(newTimers)
         setTimers(newTimers);
     }
 

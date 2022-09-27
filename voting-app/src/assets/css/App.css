@@ -1,14 +1,25 @@
+#App {
+    min-height: 100vh;
+}
+
+#Logo {
+    width: 1em;
+    vertical-align: text-top;
+}
+
 #content {
-  margin-bottom: 4em;
+    margin-bottom: 4em;
 }
 
-.ui.dividing.header {
-  margin-top: 1em;
-  margin-bottom: 2em;
+.product {
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 50%) !important;
+    backdrop-filter: blur(10px);
 }
 
-i.icon {
-  margin: 0;
+footer {
+    height: 100%;
+    padding: 1rem 0;
 }
-
 
