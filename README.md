@@ -3,4 +3,6 @@
 Fullstack React <br/>
 The Complete Guide to ReactJS and Friends
 
-Tips: All the examples have used functional programming while the book is for object-oriented programming.
+React version: 18.2
+
+<small>Tips: All the examples have used functional programming while the book is for object-oriented programming.</small>
