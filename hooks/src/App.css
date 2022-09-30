@@ -1,0 +1,33 @@
+#App {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  border-radius: 0.35rem;
+  background-color: rgba(255,255,255,0.5);
+}
+
+a.active {
+  background-color: lightskyblue;
+}
+
+#Footer {
+
+}
+
+code {
+  padding: 2px;
+  background-color: #efefef;
+  border-radius: 0.25rem;
+}
+
+.MuiListItemIcon-root {
+  justify-content: center;
+}
+
+.MuiListItemText-root .MuiListItemText-primary{
+  font-size: xx-large;
+}
